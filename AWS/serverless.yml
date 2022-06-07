@@ -1,6 +1,7 @@
 # serverless.yml
 
 service: invrtir-grafico-no-lineal-cripto-cp
+useDotenv: true
 
 provider:
   name: aws
@@ -18,6 +19,7 @@ provider:
 functions:
   app:
     handler: index.handler
+    description: LCG6 - Obtiene el gráfico de Proyecciones no lineal a corto plazo de Criptos desde los datos de AWS RDS.
     events:
       - http: GET /
       - http: 'GET {proxy+}'
