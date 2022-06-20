@@ -26,7 +26,12 @@ function totalChart(ctx, extraerdatos){
         type: 'line',
         data: {
             labels: extraerdatos.map(item => {
-                return item.fecha;
+                var fechaBD = new Date(item.fecha);
+                var year = fechaBD.getFullYear();
+                var mes = fechaBD.getMonth()+1;
+                var dia = fechaBD.getDate();
+                var fechaFormateada = `${year}-${mes}-${dia}`;
+                return fechaFormateada;
             }),
             datasets: [{
                 label: 'Precio Real',
@@ -43,9 +48,7 @@ function totalChart(ctx, extraerdatos){
             }, {
                 label: 'Forecast',
                 data: extraerdatos.map((item) => {
-                    if(item.forecast > 0){
-                        return item.forecast;
-                    }
+                    return item.forecast;
                 }),
                 borderColor: '#9E68E5',
                 backgroundColor: '#9E68E5',
@@ -55,9 +58,7 @@ function totalChart(ctx, extraerdatos){
             }, {
                 label: 'Optimista',
                 data: extraerdatos.map((item) => {
-                    if(item.optimista > 0){
-                        return item.optimista;
-                    }
+                    return item.optimista;
                 }),
                 borderColor: '#7AC95D',
                 backgroundColor: '#7AC95D',
@@ -67,9 +68,7 @@ function totalChart(ctx, extraerdatos){
             }, {
                 label: 'Pesimista',
                 data: extraerdatos.map((item) => {
-                    if(item.pesimista > 0){
-                        return item.pesimista;
-                    }
+                    return item.pesimista;
                 }),
                 borderColor: '#DF8122',
                 backgroundColor: '#DF8122',

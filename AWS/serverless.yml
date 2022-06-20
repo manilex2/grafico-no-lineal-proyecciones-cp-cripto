@@ -5,7 +5,7 @@ useDotenv: true
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs16.x
   stage: proy
   region: us-east-2
   environment:
@@ -14,7 +14,8 @@ provider:
     DB_PASSWORD: ${env:DB_PASSWORD}
     DB_PORT: ${env:DB_PORT}
     DB_DATABASE: ${env:DB_DATABASE}
-    TABLE_CRIPTO: ${env:TABLE_CRIPTO}
+    TABLE_CRIPTO_PRECIO_ACTUAL: ${env:TABLE_CRIPTO_PRECIO_ACTUAL}
+    TABLE_CRIPTO_PROY_CP_NOLINEAL: ${env:TABLE_CRIPTO_PROY_CP_NOLINEAL}
 
 functions:
   app:
